@@ -1,0 +1,279 @@
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 90px;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    .nav-wrapper {
+      background-color: #fff;
+      padding: 15px 30px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .nav-logo img {
+      height: 45px;
+      margin-right: 12px;
+    }
+
+    .menu-toggle {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      padding: 10px 14px;
+      cursor: pointer;
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .menu-toggle:hover {
+      background-color: #fff;
+    }
+
+    .dropdown-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      padding: 20px;
+      position: absolute;
+      top: 70px;
+      right: 30px;
+      width: 240px;
+    }
+
+    .dropdown-menu a {
+      color: #000;
+      text-decoration: none;
+      padding: 10px 0;
+      font-size: 15px;
+    }
+
+    .dropdown-menu hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 8px 0;
+    }
+
+    .dropdown-menu.show {
+      display: flex;
+      animation: fadeDown 0.4s ease;
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* MAIN SECTION */
+    .main-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .welcome-note {
+      position: relative;
+      background-color: #fff;
+      border-left: 5px solid #000;
+      padding: 20px;
+      margin-bottom: 40px;
+      font-size: 1.1em;
+      color: #222;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .welcome-note::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('/storage/emulated/0/BMACE_OFFICIAL_FOLDER/BMACE_OFFICIAL_IMAGES/bmacelogo.jpg');
+      background-size: 160px;
+      background-repeat: no-repeat;
+      background-position: top right;
+      opacity: 0.07;
+      z-index: 0;
+    }
+
+    .welcome-note p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .main-section h1 {
+      font-size: 2.4em;
+      margin-bottom: 30px;
+      color: #1a1a1a;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 25px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    button {
+      background-color: #000;
+      color: #fff;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #444;
+    }
+
+    /* CONTACT INFO BLOCK */
+    .contact-info {
+      margin-top: 50px;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .contact-info h2 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      color: #111;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .info-item span.icon {
+      font-size: 22px;
+      margin-right: 12px;
+      color: #000;
+      width: 30px;
+    }
+
+    .info-item span.text {
+      font-size: 16px;
+    }
+
+    .info-item a {
+      color: #007e00;
+      text-decoration: none;
+    }
+
+    .info-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* MAP */
+    .map {
+      margin-top: 40px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    iframe {
+      width: 100%;
+      height: 350px;
+      border: none;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 14px;
+    }
+
+    .social-links {
+      margin-top: 10px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .social-links a:hover {
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .dropdown-menu {
+        right: 10px;
+        width: 90%;
+      }
+
+      .main-section h1 {
+        font-size: 1.8em;
+        text-align: center;
+      }
+
+      form {
+        padding: 25px;
+      }
+    }

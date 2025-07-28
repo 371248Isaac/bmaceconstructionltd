@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Bmace Construction Ltd</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+
+  </style>
+</head>
+<body>
+    
+    <!-- External Stylesheets -->
+<link rel="stylesheet" href="contact.css">
+
+<!-- External Stylesheets -->
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+<img src="/storage/emulated/0/BMACE_OFFICIAL_FOLDER/BMACE_OFFICIAL_IMAGES/bmacelogo.jpg" alt="Logo">
+<h5>BMACE CONSTRUCTION</h5><span style="color:#333;"><h5>LTD</h5></span>
+</div>
+
+<button class="menu-toggle" onclick="toggleMenu()">☰</button>
+<div class="dropdown-menu" id="dropdown">
+<a href="index.html">Home</a><hr>
+<a href="about.html">About Us</a><hr>
+<a href="services.html">Our Services</a><hr>
+<a href="projects.html">Projects</a><hr>
+<a href="careers.html">Careers</a><hr>
+<a href="board.html">Board of Trustees</a><hr>
+<a href="contact.html">Contact</a>
+</div>
+</header>
+
+
+<!-- MAIN CONTENT -->
+<main class="main-section">
+  <div class="welcome-note">
+    <p>
+      Welcome to our Contact Page. If you have inquiries, proposals, or partnership opportunities, feel free to reach out via the form below or through any of the provided contact methods. We're here to help!
+    </p>
+  </div>
+
+  <!-- CONTACT DETAILS -->
+  <div class="contact-info">
+    <h2>Contact Information</h2>
+
+    <div class="info-item">
+      <span class="icon">📌</span>
+      <span class="text">Km 7, Abuja-Keffi Expressway, Bmace Yard, Abuja, Nigeria</span>
+    </div>
+
+    <div class="info-item">
+      <span class="icon">📱</span>
+      <span class="text">+234 812 345 6789, +234 803 456 7890</span>
+    </div>
+
+    <div class="info-item">
+      <span class="icon">📧</span>
+      <span class="text">info@bmaceconstructionltd.com</span>
+    </div>
+
+    <div class="info-item">
+      <span class="icon">💬</span>
+      <span class="text">
+        <a href="https://wa.me/+234 812 345 6789" target="_blank">Chat with us on WhatsApp</a>
+      </span>
+    </div>
+  </div>
+
+  <!-- MAP -->
+  <div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.924199015293!2d7.486000314781274!3d9.057851793495088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e74c30c5c9a3d%3A0xd1e00dfc19f5c8a6!2sAbuja%20Nigeria!5e0!3m2!1sen!2sng!4v1692951829102!5m2!1sen!2sng"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</main>
+
+<h1>Contact Us</h1>
+
+<!-- FORM -->
+<form action="mailto:youremail@example.com" method="post" enctype="text/plain">
+  <label for="name">Full Name:</label>
+  <input type="text" id="name" name="name" required />
+
+  <label for="email">Email Address:</label>
+  <input type="email" id="email" name="email" required />
+
+  <label for="phone">Phone Number:</label>
+  <input type="tel" id="phone" name="phone" />
+
+  <label for="message">Your Message:</label>
+  <textarea id="message" name="message" required></textarea>
+
+  <button type="submit">Send Message</button>
+</form>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2025 Bmace Construction Ltd. All rights reserved.
+  <div class="social-links">
+    <a href="#">Facebook</a> |
+    <a href="#">Instagram</a> |
+    <a href="#">LinkedIn</a> |
+    <a href="#">Twitter</a>
+  </div>
+</footer>
+
+<!-- JS -->
+<script>
+  function toggleMenu() {
+    document.getElementById("dropdown").classList.toggle("show");
+  }
+
+  window.onclick = function(e) {
+    if (!e.target.matches('.menu-toggle')) {
+      let dropdown = document.getElementById("dropdown");
+      if (dropdown.classList.contains('show')) {
+        dropdown.classList.remove('show');
+      }
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+<title>bmaceconstructionltd – Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+ <!-- External Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+<img src="/storage/emulated/0/BMACE_OFFICIAL_FOLDER/BMACE_OFFICIAL_IMAGES/bmacelogo.jpg" alt="Logo">
+BMACE CONSTRUCTION <span style="color:#333;">LTD</span>
+</div>
+
+<button class="menu-toggle" onclick="toggleMenu()">☰</button>
+<div class="dropdown-menu" id="dropdown">
+<a href="index.html">Home</a><hr>
+<a href="about.html">About Us</a><hr>
+<a href="services.html">Our Services</a><hr>
+<a href="projects.html">Projects</a><hr>
+<a href="careers.html">Careers</a><hr>
+<a href="board.html">Board of Trustees</a><hr>
+<a href="contact.html">Contact</a>
+</div>
+</header>
+
+<section class="hero">
+<div>
+<h1>10+ Years Of Excellence</h1>
+<p>
+Delivering Landmark Civil & Infrastructural Projects
+</p>
+<button class="btn">Contact Us</button>
+</div>
+</section>
+
+<div class="bmace-container">
+<h1 class="caption">Welcome to Bmace Construction Ltd</h1>
+<p>
+Bmace Construction Ltd is a leading construction company in Nigeria, boasting over 10 years of experience in delivering high-quality civil and infrastructural projects that add significant value to our clients and the nation.
+</p>
+
+<h2 class="caption">Our Vision</h2>
+<ul>
+<li>To become a trusted construction company to our esteemed clients and in the Nigerian business sector.</li>
+<li>To positively affect the construction industry through our innovative and quality services deliverance.</li>
+</ul>
+
+<div class="custom-accordion-section" id="accordionWrapper">
+<div class="accordion-container">
+
+<!-- Accordion 1 -->
+<div class="accordion-item">
+<div class="accordion-label" onclick="toggleAccordion(this)">
+Our Value
+<span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+</div>
+<div class="accordion-content">
+<p>
+We pride ourselves on delivering exceptional quality services through a team of professionals...
+</p>
+</div>
+</div>
+
+<!-- Accordion 2 -->
+<div class="accordion-item">
+<div class="accordion-label" onclick="toggleAccordion(this)">
+Our Mission
+<span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+</div>
+<div class="accordion-content">
+<p>
+We utilize first class technologies in the execution of projects...
+</p>
+</div>
+</div>
+
+<!-- Accordion 3 -->
+<div class="accordion-item">
+<div class="accordion-label" onclick="toggleAccordion(this)">
+Our Objectives
+<span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+</div>
+<div class="accordion-content">
+<p>
+Our performance complies with all required safety, quality, and environmental standards...
+</p>
+</div>
+</div>
+
+</div>
+</div>
+
+<h2 class="caption">Our Services</h2>
+</div>
+
+<section class="services">
+<div class="service">
+<i class="fa fa-road"></i><h3>Road & Bridge</h3><p>
+Highway & Airstrip
+</p>
+</div>
+<div class="service">
+<i class="fa fa-building"></i><h3>Residential</h3><p>
+Buildings & Complexes
+</p>
+</div>
+<div class="service">
+<i class="fa fa-city"></i><h3>Town Dev.</h3><p>
+Urban Infrastructure
+</p>
+</div>
+<div class="service">
+<i class="fa fa-water"></i><h3>Irrigation</h3><p>
+Water Management
+</p>
+</div>
+<div class="service">
+<i class="fa fa-tint"></i><h3>Water Treat.</h3><p>
+Plant Solutions
+</p>
+</div>
+</section>
+
+<section class="projects">
+<h2 style="text-align:center">Project Gallery</h2>
+<div class="grid">
+<div class="project-card">
+<img src="/storage/emulated/0/BMACE_OFFICIAL_FOLDER/BMACE_OFFICIAL_IMAGES/istockphoto-1463351369-612x612.jpg" alt="Outer Northern Express Way">
+<div class="info">
+<strong>Outer Northern Express Way</strong><br>Road, Highway, Airstrip & Bridge
+</div>
+</div>
+</div>
+<p style="text-align:center; margin-top:20px;">
+<button class="btn">View All Projects</button>
+</p>
+</section>
+
+<footer>
+<div class="cols">
+<div class="col">
+<h4>Contact</h4>
+<p>
+No.52 Kuje Road, Gwagwalada, FCT
+</p>
+<p>
++234 (0)7061660900<br>+234 (0)9127722526
+</p>
+<p>
+bmaceconstruction@gmail.com
+</p>
+</div>
+<div class="col">
+<h4>Working Hours</h4>
+<p>
+Mon–Fri: 7 AM–6 PM
+</p>
+<p>
+Sat: 7 AM–2 PM
+</p>
+</div>
+<div class="col">
+<h4>Services</h4>
+<ul>
+<li>Road & Bridge</li>
+<li>Residential</li>
+<li>Town Dev</li>
+<li>Irrigation</li>
+<li>Water Treat.</li>
+</ul>
+</div>
+<div class="col social">
+<h4>Follow Us</h4>
+<p>
+<i class="fab fa-facebook"></i> <i class="fab fa-linkedin"></i>
+</p>
+</div>
+</div>
+<p style="text-align:center; margin-top:20px; color:#777;">
+© 2025 Bmace Construction Ltd. All rights reserved.
+</p>
+</footer>
+
+<script>
+function toggleMenu() {
+document.getElementById("dropdown").classList.toggle("show");
+}
+
+window.onclick = function(e) {
+if (!e.target.matches('.menu-toggle')) {
+let dropdown = document.getElementById("dropdown");
+if (dropdown.classList.contains('show')) {
+dropdown.classList.remove('show');
+}
+}
+}
+
+function toggleAccordion(label) {
+const allItems = document.querySelectorAll('.accordion-item');
+const parent = label.parentElement;
+const content = parent.querySelector('.accordion-content');
+const icon = label.querySelector('.accordion-icon');
+const isOpen = content.classList.contains('open');
+
+allItems.forEach(item => {
+item.classList.remove('active');
+item.querySelector('.accordion-content').classList.remove('open');
+item.querySelector('.accordion-icon').classList.remove('rotate');
+});
+
+if (!isOpen) {
+content.classList.add('open');
+icon.classList.add('rotate');
+parent.classList.add('active');
+}
+}
+</script>
+
+</body>
+</html>

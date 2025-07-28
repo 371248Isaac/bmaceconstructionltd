@@ -1,0 +1,222 @@
+/* careers.css */
+
+/* Reset and fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  padding-top: 80px;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  color: #000;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .logo img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.menu-toggle {
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  background-color: #fff;
+  position: absolute;
+  top: 70px;
+  right: 15px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 10px;
+  z-index: 999;
+}
+
+.dropdown-menu a {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.dropdown-menu.show {
+  display: flex;
+}
+
+/* Main Section */
+.main-section {
+  max-width: 700px;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.main-section h1 {
+  margin-bottom: 10px;
+  font-size: 28px;
+  text-align: center;
+  color: #004080;
+}
+
+.main-section h5 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+form label {
+  display: block;
+  margin: 12px 0 5px;
+  font-weight: bold;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border: 1px solid #f1c40f;
+  outline: none;
+}
+
+form textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+form button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #004080;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0066cc;
+}
+
+/* Contact CTA Section */
+.contact-cta {
+  margin: 50px 0 0;
+  padding: 40px 0;
+  background-color: #004080;
+  color: white;
+  text-align: center;
+}
+
+.contact-cta h2 {
+  margin-bottom: 15px;
+}
+
+.contact-cta .btn {
+  padding: 10px 20px;
+  border: 2px solid white;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-cta .btn:hover {
+  background-color: white;
+  color: #004080;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 14px;
+  position: relative;
+}
+
+footer .social-links {
+  margin-top: 10px;
+}
+
+footer .social-links a {
+  color: #ccc;
+  margin: 0 10px;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+footer .social-links a:hover {
+  color: #f1c40f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+  }
+
+  .dropdown-menu {
+    right: 10px;
+    width: 90%;
+  }
+
+  .main-section {
+    margin: 20px;
+    padding: 20px;
+  }
+}

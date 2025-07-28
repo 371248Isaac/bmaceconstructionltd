@@ -1,0 +1,203 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Careers - Bmace Construction Ltd</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+ /* Hero Section */
+    .hero {
+      background: #004080;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+    }
+
+    /* Section Title */
+    .section-title {
+      font-size: 26px;
+      text-align: center;
+      margin: 40px 0 20px;
+      color: #222;
+    }
+
+    /* Trustees Grid */
+    .trustees {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      padding: 20px 30px 50px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin: 15px 0 5px;
+      color: #222;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+
+    /* Info Sections */
+    .content-section {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px 30px;
+      font-size: 16px;
+      color: #444;
+      text-align: center;
+    }
+
+    .content-section p {
+      margin-bottom: 20px;
+    }
+</style>
+
+<!-- External Stylesheets -->
+<link rel="stylesheet" href="about.css">
+<!-- External Stylesheets -->
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+<img src="/storage/emulated/0/BMACE_OFFICIAL_FOLDER/BMACE_OFFICIAL_IMAGES/bmacelogo.jpg" alt="Logo">
+<h5>BMACE CONSTRUCTION</h5><span style="color:#333;"><h5>LTD</h5></span>
+</div>
+
+<button class="menu-toggle" onclick="toggleMenu()">☰</button>
+<div class="dropdown-menu" id="dropdown">
+<a href="index.html">Home</a><hr>
+<a href="about.html">About Us</a><hr>
+<a href="services.html">Our Services</a><hr>
+<a href="projects.html">Projects</a><hr>
+<a href="careers.html">Careers</a><hr>
+<a href="board.html">Board of Trustees</a><hr>
+<a href="contact.html">Contact</a>
+</div>
+</header>
+
+  <!-- Trustees -->
+  <h2 class="section-title">Board of Trustees</h2>
+  <section class="trustees">
+    <div class="card">
+      <img src="/storage/emulated/0/BMACE_OFFICIAL_FOLDER/BMACE_OFFICIAL_IMAGES/IMG_20250718_102535_487.jpg" alt="Iorkyaa Michael Tersoo">
+      <h3>
+     Michael Itokpa</h3>
+      <p>C.E.O/President</p>
+    </div>
+    <div class="card">
+      <img src="/storage/emulated/0/BMACE_OFFICIAL_FOLDER/BMACE_OFFICIAL_IMAGES/IMG-20250722-WA0003.jpg" alt="Angela Clark">
+      <h3>Angela Clark</h3>
+      <p>Vice President</p>
+    </div>
+    <div class="card">
+      <img src="/storage/emulated/0/BMACE_OFFICIAL_FOLDER/BMACE_OFFICIAL_IMAGES/Screenshot_20250726-115438.png">
+      <h3>
+     Iorkyaa Michael Tersoo </h3>
+      <p>Member</p>
+    </div>
+  </section>
+
+  <!-- Meet the Team -->
+  <h2 class="section-title">Meet the Team</h2>
+  <section class="content-section">
+    <p>Our team at BMACE Construction LTD consists of skilled engineers, architects, managers, and staff who are dedicated to excellence and precision.</p>
+    <p>Every project we undertake is executed with the utmost care and expertise to ensure quality infrastructure that lasts generations.</p>
+  </section>
+
+  <!-- Vision Section -->
+  <h2 class="section-title">Our Vision</h2>
+  <section class="content-section">
+    <p>We aspire to be Nigeria’s most trusted construction company, setting the benchmark for engineering excellence in Africa.</p>
+    <p>Through innovation, sustainability, and integrity, we build infrastructure that empowers communities and drives economic growth.</p>
+  </section>
+
+
+
+
+
+
+  <section class="contact-cta">
+    <div class="container">
+      <h2>GET IN TOUCH</h2>
+      <a href="contact.html" class="btn btn-outline-light">Contact Us</a>
+    </div>
+  </section>
+  <footer>
+
+    &copy; 2025 Bmace Construction Ltd. All rights reserved.
+    <div class="social-links">
+      <a href="#"><i class="bi bi-facebook"></i></a>
+      <a href="#"><i class="bi bi-instagram"></i></a>
+      <a href="#"><i class="bi bi-twitter"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("dropdown").classList.toggle("show");
+    }
+
+    function toggleSubMenu() {
+      document.getElementById("service-submenu").classList.toggle("show");
+    }
+
+    window.onclick = function(e) {
+      if (!e.target.matches('.menu-toggle') && !e.target.closest('.dropdown')) {
+        const dropdown = document.getElementById("dropdown");
+        const submenu = document.getElementById("service-submenu");
+        if (dropdown.classList.contains('show')) {
+          dropdown.classList.remove('show');
+        }
+        if (submenu.classList.contains('show')) {
+          submenu.classList.remove('show');
+        }
+      }
+    }
+  </script>
+</body>
+</html>

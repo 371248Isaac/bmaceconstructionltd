@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMACE Admin Dashboard</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; margin: 0; display: flex; }
+    .sidebar { width: 260px; background: #1e1e2f; color: white; height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; }
+    .sidebar .logo { padding: 1rem; text-align: center; background: #151521; font-weight: bold; border-bottom: 1px solid #333; }
+    .sidebar nav a { display: block; color: #ccc; padding: 1rem 1.5rem; text-decoration: none; border-left: 4px solid transparent; }
+    .sidebar nav a.active, .sidebar nav a:hover { background: #292944; border-left: 4px solid #00bcd4; color: #fff; }
+    header { position: fixed; top: 0; left: 260px; right: 0; background: white; padding: 1rem 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 1000; display: flex; justify-content: space-between; }
+    main { margin-left: 260px; padding: 6rem 2rem 2rem; width: 100%; }
+    .card { background: white; padding: 1.5rem; margin-bottom: 2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    table { width: 100%; border-collapse: collapse; }
+    table th, table td { padding: 0.75rem; border: 1px solid #eee; }
+    form input, form textarea { width: 100%; padding: 0.75rem; margin: 0.5rem 0; border: 1px solid #ccc; border-radius: 5px; }
+    .btn { padding: 10px 16px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    .btn-primary { background: #007bff; color: white; }
+    .btn-danger { background: #dc3545; color: white; }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">BMACE CONSTRUCTION LTD</div>
+    <nav>
+      <a href="#projects" class="active"><i class="fa fa-building"></i> Our Projects</a>
+    </nav>
+  </div>  <header>
+    <div><strong>Admin Dashboard</strong></div>
+  </header>  <main>
+    <section class="card" id="projects">
+      <h2>Manage Our Projects</h2>
+      <form id="projectForm">
+        <input type="text" id="projectTitle" placeholder="Project Title" required>
+        <textarea id="projectDesc" placeholder="Project Description" required></textarea>
+        <input type="file" id="projectImage" accept="image/*">
+        <button class="btn btn-primary" type="submit">Add Project</button>
+      </form>
+      <table>
+        <thead>
+          <tr><th>Title</th><th>Description</th><th>Image</th><th>Action</th></tr>
+        </thead>
+        <tbody id="projectList"></tbody>
+      </table>
+    </section>
+  </main>  <!-- Firebase SDK -->  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCGUYSmZZilY76LdbRrwcdMWNPgzxZKR_8",
+      authDomain: "bmace-construction-admin.firebaseapp.com",
+      projectId: "bmace-construction-admin",
+      storageBucket: "bmace-construction-admin.firebasestorage.app",
+      messagingSenderId: "104839678010",
+      appId: "1:104839678010:web:137fbcd29e6f2de3018d03",
+      measurementId: "G-JTP36765S2"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+
+    const form = document.getElementById('projectForm');
+    const list = document.getElementById('projectList');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const title = document.getElementById('projectTitle').value;
+      const desc = document.getElementById('projectDesc').value;
+      const file = document.getElementById('projectImage').files[0];
+      let imageUrl = "";
+
+      if (file) {
+        const ref = storage.ref(`projects/${Date.now()}_${file.name}`);
+        await ref.put(file);
+        imageUrl = await ref.getDownloadURL();
+      }
+
+      await db.collection('projects').add({ title, desc, image: imageUrl, timestamp: Date.now() });
+      alert("Project added successfully.");
+      form.reset();
+      loadProjects();
+    });
+
+    async function loadProjects() {
+      const snapshot = await db.collection('projects').orderBy('timestamp', 'desc').get();
+      list.innerHTML = "";
+      snapshot.forEach(doc => {
+        const p = doc.data();
+        list.innerHTML += `
+          <tr>
+            <td>${p.title}</td>
+            <td>${p.desc}</td>
+            <td>${p.image ? `<img src="${p.image}" width="100">` : 'N/A'}</td>
+            <td><button class='btn btn-danger' onclick='deleteProject("${doc.id}")'>Delete</button></td>
+          </tr>`;
+      });
+    }
+
+    async function deleteProject(id) {
+      if (confirm("Delete this project?")) {
+        await db.collection('projects').doc(id).delete();
+        loadProjects();
+      }
+    }
+
+    loadProjects();
+  </script></body>
+</html>
