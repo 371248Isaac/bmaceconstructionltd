@@ -121,7 +121,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url('/storage/emulated/0/BMACE_OFFICIAL_FOLDER/BMACE_OFFICIAL_IMAGES/bmacelogo.jpg');
+      background-image: url('BMACE_OFFICIAL_IMAGES/bmacelogo.jpg');
       background-size: 160px;
       background-repeat: no-repeat;
       background-position: top right;
