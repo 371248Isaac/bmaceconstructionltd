@@ -73,17 +73,17 @@ header {
 
 .dropdown-menu.show {
   display: flex;
-  animation: fadeDown 0.4s ease;
+  animation: fadeDown 0.5s ease;
 }
 
 .dropdown-menu a {
   color: #000;
   text-decoration: none;
   padding: 10px 0;
-  font-size: 17px;
+  font-size: 12px;
   display: flex;
   align-items: center;
-  gap: 12px; /* spacing between icon and text */
+  gap: 10px; /* spacing between icon and text */
 }
 
 .dropdown-menu a i {
@@ -101,7 +101,7 @@ header {
   margin: 8px 0;
 }
 .hero{
-  background:url('BMACE_OFFICIAL_IMAGES/p6.jpg')center/cover no-repeat;
+  background:url('BMACE_OFFICIAL_IMAGES/road1.jpg')center/cover no-repeat;
   
 }
 /* Smooth dropdown animation */
