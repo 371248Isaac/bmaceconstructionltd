@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en">
+<!-- <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>bmaceconstructionltd – Home</title>
@@ -337,4 +337,394 @@
     }
   }
 </script></body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>bmaceconstructionltd – Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="index.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background-color: #fff;
+    }
+
+    header {
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .logo h6 {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .menu-toggle {
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropdown-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 200px;
+      z-index: 1001;
+    }
+
+    .dropdown-menu a {
+      padding: 10px 0;
+      text-decoration: none;
+      color: #222;
+      display: block;
+    }
+
+    .dropdown-menu.show {
+      display: block;
+    }
+
+    .hero {
+      background: url('BMACE_OFFICIAL_IMAGES/hero-background.jpg') center/cover no-repeat;
+      padding: 120px 20px 80px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin: 15px 0;
+    }
+
+    .hero .btn a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .btn {
+      background: #007BFF;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .bmace-container {
+      padding: 60px 20px 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .bmace-container .caption {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 60px 20px;
+      background: #f8f9fa;
+    }
+
+    .service {
+      background: #fff;
+      border-radius: 10px;
+      text-align: center;
+      padding: 30px 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    .service i {
+      font-size: 40px;
+      color: #007BFF;
+      margin-bottom: 10px;
+    }
+
+    .service h3 {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #222;
+    }
+
+    .service p {
+      font-size: 14px;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    .projects {
+      padding: 60px 20px;
+    }
+
+    .projects .grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .project-card {
+      width: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-card .info {
+      padding: 15px;
+      background: #fff;
+      text-align: center;
+    }
+
+    footer {
+      background: #222;
+      color: #fff;
+      padding: 40px 20px 20px;
+    }
+
+    footer .cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      align-items: start;
+    }
+
+    footer .col h4,
+    footer .col h5 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    footer ul li {
+      margin: 5px 0;
+    }
+
+    footer .social i {
+      font-size: 22px;
+      margin-right: 10px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    footer .brand-footer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    footer .brand-footer img {
+      height: 50px;
+    }
+
+    footer p.copy {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    @media(max-width: 768px) {
+      .hero {
+        padding: 100px 15px 60px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .dropdown-menu {
+        width: 100%;
+        right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="BMACE_OFFICIAL_IMAGES/BMACELOGO.jpg" alt="Logo">
+      <h6><span style="color:blue">BMACE</span> <span style="color:red">CONSTRUCTION LTD</span></h6>
+    </div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="dropdown-menu" id="dropdown">
+      <a href="index.html"><i class="fa fa-home"></i> Home</a><hr>
+      <a href="about.html"><i class="fa fa-users"></i> About Us</a><hr>
+      <a href="services.html"><i class="fa fa-cogs"></i> Our Services</a><hr>
+      <a href="projects.html"><i class="fa fa-building"></i> Projects</a><hr>
+      <a href="careers.html"><i class="fa fa-briefcase"></i> Careers</a><hr>
+      <a href="board.html"><i class="fa fa-user-tie"></i> Board of Trustees</a><hr>
+      <a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>10+ Years Of Excellence</h1>
+    <p>Delivering Landmark Civil & Infrastructural Projects</p>
+    <button class="btn"><a href="contact.html">Contact Us</a></button>
+  </section>
+
+  <div class="bmace-container">
+    <h1 class="caption">Welcome to Bmace Construction Ltd</h1>
+    <p>Bmace Construction Ltd remains a leading construction company in Nigeria with over 10 years working experience in delivering value-added civil and infrastructural projects in Nigeria.</p>
+
+    <h2 class="caption">Our Vision</h2>
+    <ul>
+      <li>To become a trusted construction company to our esteemed clients and in the Nigerian business sector.</li>
+      <li>To positively affect the construction industry through our innovative and quality services deliverance.</li>
+    </ul>
+  </div>
+
+  <h2 style="text-align:center; margin-top:40px;">Our Services</h2>
+  <section class="services">
+    <div class="service">
+      <i class="fa fa-road"></i>
+      <h3>Road & Bridge</h3>
+      <p>Highways and airstrips with precision engineering.</p>
+    </div>
+    <div class="service">
+      <i class="fa fa-building"></i>
+      <h3>Residential & Industrial</h3>
+      <p>Strong foundations for homes and industries.</p>
+    </div>
+    <div class="service">
+      <i class="fa fa-city"></i>
+      <h3>Town Development</h3>
+      <p>Urban renewal and city infrastructure.</p>
+    </div>
+    <div class="service">
+      <i class="fa fa-water"></i>
+      <h3>Irrigation & Drainage</h3>
+      <p>Efficient water management systems.</p>
+    </div>
+    <div class="service">
+      <i class="fa fa-solar-panel"></i>
+      <h3>Solar & Renewable Energy</h3>
+      <p>Clean, sustainable energy solutions.</p>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2 style="text-align:center">Project Gallery</h2>
+    <div class="grid">
+      <div class="project-card">
+        <img src="BMACE_OFFICIAL_IMAGES/istockphoto-1463351369-612x612.jpg" alt="Our new projects">
+        <div class="info">
+          <strong>Our latest projects</strong>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:20px;">
+      <button class="btn">View All Projects</button>
+    </p>
+  </section>
+
+  <footer>
+    <div class="cols">
+      <div class="col brand-footer">
+        <img src="BMACE_OFFICIAL_IMAGES/BMACELOGO.jpg" alt="Logo" />
+        <h4>BMACE CONSTRUCTION LTD</h4>
+      </div>
+      <div class="col">
+        <h4>Contact</h4>
+        <p>No.52 Kuje Road Beside leader company Gwagwalada, FCT, Abuja</p>
+        <p>+234 (0)7061660900<br>+234 (0)9127722526</p>
+        <p>bmaceconstruction@gmail.com</p>
+      </div>
+      <div class="col">
+        <h4>Services</h4>
+        <ul>
+          <li>Road, Bridge & Airstrip</li>
+          <li>Residential & Industrial</li>
+          <li>Town Development</li>
+          <li>Irrigation & Drainage</li>
+          <li>Solar & Renewable Energy</li>
+        </ul>
+      </div>
+      <div class="col social">
+        <h4>Follow Us</h4>
+        <p>
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-linkedin"></i>
+          <i class="fab fa-x-twitter"></i>
+          <i class="fab fa-instagram"></i>
+        </p>
+      </div>
+    </div>
+    <p class="copy">© 2025 Bmace Construction Ltd. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("dropdown").classList.toggle("show");
+    }
+
+    window.onclick = function(e) {
+      if (!e.target.matches('.menu-toggle')) {
+        let dropdown = document.getElementById("dropdown");
+        if (dropdown.classList.contains('show')) {
+          dropdown.classList.remove('show');
+        }
+      }
+    };
+  </script>
+</body>
 </html>
