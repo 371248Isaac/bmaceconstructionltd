@@ -1,13 +1,14 @@
-    /*
+    
 body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
       color: #222;
       line-height: 1.6;
-    }a {
+    }
+a {
   color: #111;
   text-decoration: none;
-}*/
+}
 a:hover {
   color: #E0A106;
 }
