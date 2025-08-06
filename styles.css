@@ -105,7 +105,7 @@ header {
   background:url('BMACE_OFFICIAL_IMAGES/road1.jpg')center/cover no-repeat;
   
 }
-/* Smooth dropdown animation */
+/* Smooth dropdown animation 
 @keyframes fadeDown {
   from {
     opacity: 0;
