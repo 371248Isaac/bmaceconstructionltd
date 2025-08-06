@@ -94,7 +94,7 @@ header {
     transform: translateY(0);
   }
 }
-*/
+
 .hero {
   background: url('BMACE_OFFICIAL_IMAGES/road1.jpg') center/cover no-repeat;
   height: 400px;
@@ -105,7 +105,7 @@ header {
   color: #fff;
   margin-top: 0;
 }
-
+*/
 .hero h1 {
   font-size: 48px;
   margin: 0;
