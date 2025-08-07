@@ -204,7 +204,7 @@ footer .social-links a:hover {
   color: #f1c40f;
 }
 
-/* Responsive */
+/* Responsive 
 @media (max-width: 768px) {
   header {
     flex-direction: row;
