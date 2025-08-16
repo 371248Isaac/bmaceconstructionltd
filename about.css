@@ -109,7 +109,7 @@ color: #ccc;
 right: 10px;
 width: 90%;
 }
-}**/
+}
 .about {
   background: url('BMACE_OFFICIAL_IMAGES/p2.jpg') center/cover no-repeat;
   height: 400px;
@@ -142,3 +142,4 @@ width: 90%;
   cursor: pointer;
   font-weight: bold;
 }
+**/
