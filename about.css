@@ -109,5 +109,36 @@ color: #ccc;
 right: 10px;
 width: 90%;
 }
+}**/
+.about {
+  background: url('BMACE_OFFICIAL_IMAGES/p2.jpg') center/cover no-repeat;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  margin-top: 0;
 }
-*/
+
+.about h1 {
+  font-size: 48px;
+  margin: 0;
+  color: #fff;
+}
+
+.about p {
+  font-size: 20px;
+  color: #fff;
+}
+
+.about .btn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: #E0A106;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
