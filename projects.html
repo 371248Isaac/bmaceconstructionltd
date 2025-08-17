@@ -1,4 +1,189 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects – BMACE CONSTRUCTION LTD</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="footer.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: bold;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .content {
+      padding: 100px 20px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h2.section-title {
+      color: #222;
+      margin-bottom: 20px;
+      font-size: 28px;
+      text-align: center;
+    }
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .project-item {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .project-item:hover { transform: translateY(-5px); }
+    .project-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .project-description {
+      padding: 15px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="BMACE_OFFICIAL_IMAGES/BMACELOGO.jpg" alt="Logo">
+    <h6><font color="blue">BMACE</font><font color="red"> CONSTRUCTION</font></h6>
+    <span style="color:red;"><h6>LTD</h6></span>
+  </div>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <div class="dropdown-menu" id="dropdown">
+    <a href="index.html"><i class="fa fa-home"></i> Home</a><hr>
+    <a href="about.html"><i class="fa fa-users"></i> About Us</a><hr>
+    <a href="services.html"><i class="fa fa-cogs"></i> Our Services</a><hr>
+    <a href="projects.html"><i class="fa fa-building"></i> Projects</a><hr>
+    <a href="careers.html"><i class="fa fa-briefcase"></i> Careers</a><hr>
+    <a href="board.html"><i class="fa fa-user-tie"></i> Board of Trustees</a><hr>
+    <a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
+  </div>
+</header>
+
+<main class="content">
+  <h2 class="section-title">Our Completed Projects</h2>
+  <div class="project-gallery" id="projectGallery"></div>
+</main> 
+
+<footer class="bmace-footer">  
+  <div class="footer-container">
+    <p>BMACE Construction Ltd is a leading indigenous construction company committed to excellence in civil engineering, roads, building construction, solar and renewable energy, and project management. Our goal is to build with integrity and innovation.</p>  
+    <div class="footer-social">  
+      <a href="#"><i class="fab fa-facebook-f"></i></a>  
+      <a href="#"><i class="fab fa-instagram"></i></a>  
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>  
+      <a href="#"><i class="fab fa-twitter"></i></a>  
+    </div>  
+    <div class="footer-section">  
+      <h3>OUR SERVICES</h3>  
+      <ul>
+        <li>Road Construction</li><hr>  
+        <li>Building Construction</li><hr>  
+        <li>Project Management</li><hr>  
+        <li>Solar & Renewable Energy</li><hr>  
+        <li>Water Engineering</li><hr>  
+      </ul>  
+    </div>  
+    <div class="footer-section">  
+      <h3>WORKING HOURS</h3>  
+      <ul>
+        <li>Mon – Fri: 8:00AM – 5:00PM</li>  
+        <li>Saturday: 9:00AM – 1:00PM</li>  
+        <li>Sunday: Closed</li>  
+      </ul>  
+    </div>  
+    <h3>FOLLOW US</h3>  
+    <div class="footer-social">  
+      <a href="#"><i class="fab fa-facebook-f"></i></a>  
+      <a href="#"><i class="fab fa-instagram"></i></a>  
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>  
+      <a href="#"><i class="fab fa-twitter"></i></a>  
+    </div>  
+  </div>  
+  <div class="footer-bottom">  
+    <p>© 2025 BMACE CONSTRUCTION LTD. All Rights Reserved.</p>  
+  </div>
+</footer>  
+
+<script>
+  function toggleMenu() {
+    const dropdown = document.getElementById('dropdown');
+    dropdown.classList.toggle('show');
+  }
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCGUYSmZZilY76LdbRrwcdMWNPgzxZKR_8",
+    authDomain: "bmace-construction-admin.firebaseapp.com",
+    projectId: "bmace-construction-admin",
+    storageBucket: "bmace-construction-admin.firebasestorage.app",
+    messagingSenderId: "104839678010",
+    appId: "1:104839678010:web:137fbcd29e6f2de3018d03",
+    measurementId: "G-JTP36765S2"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app);
+
+  async function fetchProjects() {
+    const gallery = document.getElementById('projectGallery');
+    gallery.innerHTML = "<p>Loading projects...</p>";
+
+    try {
+      const querySnapshot = await getDocs(collection(db, "projects"));
+      if (querySnapshot.empty) {
+        gallery.innerHTML = "<p>No projects added yet.</p>";
+        return;
+      }
+      gallery.innerHTML = "";
+      querySnapshot.forEach((doc) => {
+        const p = doc.data();
+        gallery.innerHTML += `
+          <div class="project-item">
+            <img src="${p.image}" alt="${p.title}">
+            <div class="project-description">
+              <h4>${p.title}</h4>
+              <p>${p.description}</p>
+            </div>
+          </div>
+        `;
+      });
+    } catch (error) {
+      console.error("Error fetching projects: ", error);
+      gallery.innerHTML = "<p>Failed to load projects.</p>";
+    }
+  }
+
+  fetchProjects();
+</script>
+
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,7 +260,7 @@
   border-top: 1px solid #ccc;
   margin: 8px 0;
 }
-*/
+
 @keyframes fadeDown {
   from {
     opacity: 0;
@@ -163,11 +348,11 @@ footer1 {
   <a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
 </div>
 </header>
-  -->
+  
 
   <body>
 
-<!-- External Stylesheets -->
+<!-- External Stylesheets 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -198,18 +383,18 @@ footer1 {
   <main class="content">
     <h2 class="section-title">Our Completed Projects</h2>
     <div class="project-gallery" id="projectGallery">
-      <!-- Projects will be injected here -->
+      <!-- Projects will be injected here 
     </div>
   </main> 
-      <!-- Font Awesome for Icons -->
+      <!-- Font Awesome for Icons 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- External CSS -->
+  <!-- External CSS 
   <link rel="stylesheet" href="footer.css">
 </head>
 <body>
 
 
-  <!-- Footer Start -->
+  <!-- Footer Start 
 <footer class="bmace-footer">  
     <div class="footer-container">
  <!-- Company Info 
@@ -217,7 +402,7 @@ footer1 {
     <div class="footer-logo-wrapper">  
       <img src="/storage/emulated/0/BMACE_OFFICIAL_FOLDER/BMACE_OFFICIAL_IMAGES/BackgroundEraser_20250807_133358142.jpg" alt="BMACE Construction Logo" class="footer-logo">  
       <div class="company-name">BMACE CONSTRUCTION LTD</div>  
-    </div><br> -->
+    </div><br> 
 
      <p> BMACE Construction Ltd is a leading indigenous construction company   
       committed to excellence in civil engineering, roads, building construction,   
@@ -232,7 +417,7 @@ footer1 {
     </div>  
   
 
-  <!-- Services -->  
+  <!-- Services 
   <div class="footer-section">  
     <h3><span class="yellow-line"></span> OUR SERVICES</h3>  
     <ul><br>  
@@ -243,7 +428,7 @@ footer1 {
       <li>Water Engineering</li><hr>  
     </ul>  
   <br>  
-  <!-- Working Hours -->  
+  <!-- Working Hours 
   <div class="footer-section">  
     <h3><span class="yellow-line"></span> WORKING HOURS</h3>  
     <ul><br>  
@@ -266,7 +451,7 @@ footer1 {
 
 </div>  
 
-<!-- Bottom -->  
+<!-- Bottom 
 <div class="footer-bottom">  
   <p>© 2025 BMACE CONSTRUCTION LTD. All Rights Reserved.</p>  
 </div>
@@ -275,7 +460,7 @@ footer1 {
    <!-- <footer1>
     &copy; 2025 BMACE CONSTRUCTION LTD. All Rights Reserved.
   </footer>
-  -->
+  
   <script>
     function toggleMenu() {
       const dropdown = document.getElementById('dropdown');
@@ -305,3 +490,4 @@ footer1 {
     renderProjects();
   </script></body>
 </html>
+-->
