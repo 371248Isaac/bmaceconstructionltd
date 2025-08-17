@@ -18,7 +18,7 @@ padding: 60px 20px;
 text-align: center;
 }
 
-/* HEADER SECTION */
+/* HEADER SECTION 
 .nav-wrapper {
 background-color: #000;
 padding: 10px 20px;
@@ -86,7 +86,7 @@ margin: 8px 0;
 .dropdown-menu.show {
 display: flex;
 animation: fadeDown 0.4s ease;
-}
+} */
 
 @keyframes fadeDown {
 from {
