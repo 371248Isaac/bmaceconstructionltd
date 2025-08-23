@@ -166,7 +166,7 @@ ul li {
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
-  background: #f9f9f9;
+  background: /* #f9f9f9 */ #2D2E81;
 }
 
 .service {
