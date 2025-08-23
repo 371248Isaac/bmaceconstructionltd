@@ -177,7 +177,7 @@ ul li {
 
 .service i {
   font-size: 48px;
-  color: #E0A106;
+  color: /* #E0A106 */ #ffffff;
   margin-bottom: 10px;
 }
 
