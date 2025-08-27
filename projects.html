@@ -20,8 +20,8 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .content {
-      padding: 100px 20px 40px;
-      max-width: 1200px;
+      padding: 80px 20px 40px;
+      max-width: 1100px;
       margin: auto;
     }
     h2.section-title {
@@ -34,6 +34,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
+      justify-content: center;
     }
     .project-item {
       background-color: #fff;
@@ -47,43 +48,41 @@
       width: 100%;
       height: 200px;
       object-fit: cover;
+      display: block;
     }
     .project-description {
       padding: 15px;
       color: #333;
-
-.hero {
-  background: url('BMACE_OFFICIAL_IMAGES/landingpagepix.jpg') center/cover no-repeat;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  margin-top: 0;
-}
-
-.hero h1 {
-  font-size: 48px;
-  margin: 0;
-  color: #fff;
-}
-
-.hero p {
-  font-size: 20px;
-  color: #fff;
-}
-
-.hero .btn {
-  margin-top: 20px;
-  padding: 12px 30px;
-  background: #E0A106;
-  color: #fff;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: bold;
-}
+    }
+    /* HERO SECTION - reduced height */
+    .hero {
+      background: url('BMACE_OFFICIAL_IMAGES/landingpagepix.jpg') center/cover no-repeat;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      margin-top: 0;
+    }
+    .hero h1 {
+      font-size: 36px;
+      margin: 0;
+      color: #fff;
+    }
+    .hero p {
+      font-size: 18px;
+      color: #fff;
+    }
+    .hero .btn {
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: #E0A106;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -91,7 +90,7 @@
 
 <header>
   <div class="logo">
-    <img src="BMACE_OFFICIAL_IMAGES/BMACELOGO.jpg" alt="Logo">
+    <img src="BMACE_OFFICIAL_IMAGES/BMACELOGO.jpg" alt="Logo" loading="lazy">
     <h6><font color="blue">BMACE</font><font color="red"> CONSTRUCTION</font></h6>
     <span style="color:red;"><h6>LTD</h6></span>
   </div>
@@ -108,19 +107,38 @@
 </header>
 
 <section class="hero">
-        <div>
-
-            <h1>10+ Years Of Excellence</h1>
-           <p>
-                Delivering Landmark Civil & Infrastructural Projects
-            </p>
-            
-        </div>
-    </section>
+  <div>
+    <h1>10+ Years Of Excellence</h1>
+    <p>Delivering Landmark Civil & Infrastructural Projects</p>
+  </div>
+</section>
 
 <main class="content">
   <h2 class="section-title">Our Completed Projects</h2>
-  <div class="project-gallery" id="projectGallery"></div>
+  <div class="project-gallery" id="projectGallery">
+    <!-- Static fallback projects (before Firestore loads) -->
+    <div class="project-item">
+      <img src="BMACE_OFFICIAL_IMAGES/project1.jpg" alt="Road Construction" loading="lazy">
+      <div class="project-description">
+        <h4>Road Construction</h4>
+        <p>Completed federal highway with modern drainage and signage.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="BMACE_OFFICIAL_IMAGES/project2.jpg" alt="Building Complex" loading="lazy">
+      <div class="project-description">
+        <h4>Building Complex</h4>
+        <p>State-of-the-art office complex delivered ahead of schedule.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="BMACE_OFFICIAL_IMAGES/project3.jpg" alt="Solar Installation" loading="lazy">
+      <div class="project-description">
+        <h4>Solar & Renewable Energy</h4>
+        <p>Solar farm installation powering over 500 homes sustainably.</p>
+      </div>
+    </div>
+  </div>
 </main> 
 
 <footer class="bmace-footer">  
@@ -158,11 +176,6 @@
       <a href="#"><i class="fab fa-twitter"></i></a>  
     </div>  
   </div>  
-
-</header>
-
-    
-
   <div class="footer-bottom">  
     <p>© 2025 BMACE CONSTRUCTION LTD. All Rights Reserved.</p>  
   </div>
@@ -177,7 +190,6 @@
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
   import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
   const firebaseConfig = {
@@ -191,25 +203,17 @@
   };
 
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
   const db = getFirestore(app);
 
   async function fetchProjects() {
     const gallery = document.getElementById('projectGallery');
-    gallery.innerHTML = "<p>Loading projects...</p>";
-
     try {
       const querySnapshot = await getDocs(collection(db, "projects"));
-      if (querySnapshot.empty) {
-        gallery.innerHTML = "<p>No projects added yet.</p>";
-        return;
-      }
-      gallery.innerHTML = "";
       querySnapshot.forEach((doc) => {
         const p = doc.data();
         gallery.innerHTML += `
           <div class="project-item">
-            <img src="${p.image}" alt="${p.title}">
+            <img src="${p.image}" alt="${p.title}" loading="lazy">
             <div class="project-description">
               <h4>${p.title}</h4>
               <p>${p.description}</p>
@@ -219,10 +223,8 @@
       });
     } catch (error) {
       console.error("Error fetching projects: ", error);
-      gallery.innerHTML = "<p>Failed to load projects.</p>";
     }
   }
-
   fetchProjects();
 </script>
 
