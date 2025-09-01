@@ -81,11 +81,12 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
+/*
 
     button:hover {
       background-color: #444;
     }
-
+*/
     /* CONTACT INFO */
     .contact-info {
       margin-top: 50px;
