@@ -12,100 +12,15 @@
       line-height: 1.6;
     }
 
-    /* HEADER */
-    .nav-wrapper {
-      background-color: #fff;
-      padding: 15px 30px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 999;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      color: #000;
-      font-weight: bold;
-      font-size: 1.2em;
-    }
-
-    .nav-logo img {
-      height: 45px;
-      margin-right: 12px;
-    }
-
-    .menu-toggle {
-      background-color: #fff;
-      color: #000;
-      border: none;
-      padding: 10px 14px;
-      cursor: pointer;
-      border-radius: 6px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .menu-toggle:hover {
-      background-color: #fff;
-    }
-
-    .dropdown-menu {
-      display: none;
-      flex-direction: column;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-      padding: 20px;
-      position: absolute;
-      top: 70px;
-      right: 30px;
-      width: 240px;
-    }
-
-    .dropdown-menu a {
-      color: #000;
-      text-decoration: none;
-      padding: 10px 0;
-      font-size: 15px;
-    }
-
-    .dropdown-menu hr {
-      border: none;
-      border-top: 1px solid #ccc;
-      margin: 8px 0;
-    }
-
-    .dropdown-menu.show {
-      display: flex;
-      animation: fadeDown 0.4s ease;
-    }
-
-    @keyframes fadeDown {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     /* MAIN SECTION */
     .main-section {
-      max-width: 1100px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 40px 20px;
+      text-align: center; /* Center all text inside */
     }
 
     .welcome-note {
-      position: relative;
       background-color: #fff;
       border-left: 5px solid #000;
       padding: 20px;
@@ -113,31 +28,16 @@
       font-size: 1.1em;
       color: #222;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .welcome-note::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url ('BMACE_OFFICIAL_IMAGES/bmacelogo.jpg');
-      background-size: 160px;
-      background-repeat: no-repeat;
-      background-position: top right;
-      opacity: 0.07;
-      z-index: 0;
-    }
-
-    .welcome-note p {
-      position: relative;
-      z-index: 1;
+      display: inline-block;
+      text-align: left; /* keep paragraph aligned nicely */
+      max-width: 700px;
     }
 
     .main-section h1 {
       font-size: 2.4em;
-      margin-bottom: 30px;
+      margin: 30px 0;
       color: #1a1a1a;
+      text-align: center;
     }
 
     form {
@@ -145,6 +45,9 @@
       padding: 40px;
       border-radius: 10px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      max-width: 700px;
+      margin: 30px auto;
+      text-align: left;
     }
 
     label {
@@ -183,41 +86,49 @@
       background-color: #444;
     }
 
-    /* CONTACT INFO BLOCK */
+    /* CONTACT INFO */
     .contact-info {
       margin-top: 50px;
       background-color: #fff;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
     }
 
     .contact-info h2 {
       font-size: 1.8em;
       margin-bottom: 20px;
       color: #111;
+      text-align: center;
     }
 
     .info-item {
       display: flex;
-      align-items: flex-start;
-      margin-bottom: 15px;
+      align-items: center;
+      margin-bottom: 18px;
     }
 
-    .info-item span.icon {
-      font-size: 22px;
-      margin-right: 12px;
+    .info-item i {
+      font-size: 28px;
+      margin-right: 15px;
       color: #000;
-      width: 30px;
+      min-width: 32px;
+      text-align: center;
     }
 
     .info-item span.text {
       font-size: 16px;
+      line-height: 1.4;
     }
 
     .info-item a {
-      color: #007e00;
+      color: #25D366; /* WhatsApp green */
       text-decoration: none;
+      font-weight: bold;
     }
 
     .info-item a:hover {
@@ -230,11 +141,15 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      max-width: 700px;   /* Same width as form */
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    iframe {
+    .map iframe {
+      display: block;
       width: 100%;
-      height: 350px;
+      height: 450px;  /* Taller on desktop */
       border: none;
     }
 
@@ -245,6 +160,7 @@
       text-align: center;
       padding: 30px 10px;
       font-size: 14px;
+      margin-top: 60px;
     }
 
     .social-links {
@@ -263,17 +179,19 @@
     }
 
     @media (max-width: 768px) {
-      .dropdown-menu {
-        right: 10px;
-        width: 90%;
-      }
-
       .main-section h1 {
         font-size: 1.8em;
-        text-align: center;
       }
-
       form {
         padding: 25px;
       }
-    }
+      .welcome-note {
+        max-width: 100%;
+      }
+      .map {
+        max-width: 100%;
+      }
+      .map iframe {
+        height: 350px; /* normal height for mobile */
+      }
+    }   
