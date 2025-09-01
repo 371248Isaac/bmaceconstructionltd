@@ -205,80 +205,63 @@
     <h2>Contact Information</h2>
 
     <div class="info-item">
-      <span class="icon">📌</span>
-      <span class="text">No.52,Kuje Road,Besides Leader Company, Gwagwalada, FCT Abuja</span>
+      <i class="fas fa-map-marker-alt"></i>
+      <span class="text">No.52, Kuje Road, Besides Leader Company, Gwagwalada, FCT Abuja</span>
     </div>
 
     <div class="info-item">
-      <span class="icon">📱</span>
+      <i class="fas fa-phone-alt"></i>
       <span class="text">07061660900, 09127722526</span>
     </div>
 
     <div class="info-item">
-      <span class="icon">📧</span>
+      <i class="fas fa-envelope"></i>
       <span class="text">bmaceconstruction@gmail.com</span>
     </div>
 
     <div class="info-item">
-      <span class="icon">💬</span>
+      <i class="fab fa-whatsapp"></i>
       <span class="text">
-        <a href="https://wa.me/+234 810 367 1945" target="_blank">Chat with us on WhatsApp</a>
+        <a href="https://wa.me/2348103671945" target="_blank">Chat with us on WhatsApp</a>
       </span>
     </div>
   </div>
 
   <!-- MAP -->
   <div class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.924199015293!2d7.486000314781274!3d9.057851793495088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e74c30c5c9a3d%3A0xd1e00dfc19f5c8a6!2sAbuja%20Nigeria!5e0!3m2!1sen!2sng!4v1692951829102!5m2!1sen!2sng"
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.924199015293!2d7.486000314781274!3d9.057851793495088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e74c30c5c9a3d%3A0xd1e00dfc19f5c8a6!2sAbuja%20Nigeria!5e0!3m2!1sen!2sng!4v1692951829102!5m2!1sen!2sng&maptype=satellite"
       allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
+
+  <h1>Contact Us</h1>
+
+  <!-- FORM -->
+  <form action="mailto:youremail@example.com" method="post" enctype="text/plain">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" />
+
+    <label for="message">Your Message:</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
 </main>
-
-<h1>Contact Us</h1>
-
-<!-- FORM -->
-<form action="mailto:youremail@example.com" method="post" enctype="text/plain">
-  <label for="name">Full Name:</label>
-  <input type="text" id="name" name="name" required />
-
-  <label for="email">Email Address:</label>
-  <input type="email" id="email" name="email" required />
-
-  <label for="phone">Phone Number:</label>
-  <input type="tel" id="phone" name="phone" />
-
-  <label for="message">Your Message:</label>
-  <textarea id="message" name="message" required></textarea>
-
-  <button type="submit">Send Message</button>
-</form>
 
 <!-- FOOTER -->
 <footer>
   &copy; 2025 Bmace Construction Ltd. All rights reserved.
   <div class="social-links">
-    <a href="#">Facebook</a> |
-    <a href="#">Instagram</a> |
-    <a href="#">LinkedIn</a> |
-    <a href="#">Twitter</a>
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
   </div>
 </footer>
-
-<!-- JS --
-<script>
-  function toggleMenu() {
-    document.getElementById("dropdown").classList.toggle("show");
-  }
-
-  window.onclick = function(e) {
-    if (!e.target.matches('.menu-toggle')) {
-      let dropdown = document.getElementById("dropdown");
-      if (dropdown.classList.contains('show')) {
-        dropdown.classList.remove('show');
-      }
-    }
-  }
-</script>
-  -->
 </body>
 </html>
