@@ -14,7 +14,7 @@ a:hover {
   color: #E0A106;
 }
 
-
+/*
 header {
   background: #fff;
   padding: 10px 20px;
@@ -94,7 +94,7 @@ header {
     transform: translateY(0);
   }
 }
-
+*/
 .hero {
   background: url('BMACE_OFFICIAL_IMAGES/landingpagepix.jpg') center/cover no-repeat;
   height: 400px;
