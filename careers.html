@@ -80,105 +80,103 @@
     <a href="services.html"><i class="fa fa-cogs"></i> Our Services</a><hr>
 
     <!-- Company submenu -->
-    <a href="javascript:void(0)" onclick="toggleSubmenu('company-submenu','company-caret','company-separator', this)" style="display:flex; justify-content:space-between; align-items:center;">
-      <span style="display:flex; align-items:center; gap:10px;" class="menu-label">
-        <i class="fa fa-building-user"></i> Company
-      </span>
-      <span class="caret-box"><i class="fa fa-angle-down caret-icon" id="company-caret"></i></span>
-    </a>
-    <div id="company-separator"><hr></div>
-    <div class="submenu" id="company-submenu">
-      <a href="about.html"><i class="fa fa-users"></i> About Us</a><hr>
-      <a href="board.html"><i class="fa fa-user-tie"></i> Board of Trustees</a>
+    <div class="menu-item">
+      <a href="javascript:void(0)" onclick="toggleSubmenu('company-submenu','company-caret','company-separator', this)" style="display:flex; justify-content:space-between; align-items:center;">
+        <span style="display:flex; align-items:center; gap:10px;" class="menu-label">
+          <i class="fa fa-building-user"></i> Company
+        </span>
+        <span class="caret-box"><i class="fa fa-angle-down caret-icon" id="company-caret"></i></span>
+      </a>
+      <div id="company-separator"><hr></div>
+      <div class="submenu" id="company-submenu">
+        <a href="about.html"><i class="fa fa-users"></i> About Us</a><hr>
+        <a href="board.html"><i class="fa fa-user-tie"></i> Board of Trustees</a>
+      </div>
+      <hr class="submenu-hr">
     </div>
-    <hr class="submenu-hr">
 
     <!-- Projects submenu -->
-    <a href="javascript:void(0)" onclick="toggleSubmenu('projects-submenu','projects-caret','projects-separator', this)" style="display:flex; justify-content:space-between; align-items:center;">
-      <span style="display:flex; align-items:center; gap:10px;" class="menu-label">
-        <i class="fa fa-building"></i> Projects
-      </span>
-      <span class="caret-box"><i class="fa fa-angle-down caret-icon" id="projects-caret"></i></span>
-    </a>
-    <div id="projects-separator"><hr></div>
-    <div class="submenu" id="projects-submenu">
-      <a href="projects.html"><i class="fa fa-check-circle"></i> Completed Projects</a><hr>
-      <a href="ongoingproject.html"><i class="fa fa-spinner"></i> Ongoing Projects</a>
+    <div class="menu-item">
+      <a href="javascript:void(0)" onclick="toggleSubmenu('projects-submenu','projects-caret','projects-separator', this)" style="display:flex; justify-content:space-between; align-items:center;">
+        <span style="display:flex; align-items:center; gap:10px;" class="menu-label">
+          <i class="fa fa-building"></i> Projects
+        </span>
+        <span class="caret-box"><i class="fa fa-angle-down caret-icon" id="projects-caret"></i></span>
+      </a>
+      <div id="projects-separator"><hr></div>
+      <div class="submenu" id="projects-submenu">
+        <a href="projects.html"><i class="fa fa-check-circle"></i> Completed Projects</a><hr>
+        <a href="ongoingproject.html"><i class="fa fa-spinner"></i> Ongoing Projects</a>
+      </div>
+      <hr class="submenu-hr">
     </div>
-    <hr class="submenu-hr">
 
     <a href="careers.html"><i class="fa fa-briefcase"></i> Careers</a><hr>
     <a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
   </div>
 </header>
 
-<script>
-  function toggleMenu() {
-    const dropdown = document.getElementById("dropdown");
-    const menuBtn = document.getElementById("menuBtn");
+  <script>
+            function toggleMenu() {
+                const dropdown = document.getElementById("dropdown");
+                const menuBtn = document.getElementById("menuBtn");
+                dropdown.classList.toggle("show");
+                menuBtn.classList.toggle("active");
+                menuBtn.setAttribute('aria-expanded', dropdown.classList.contains('show'));
+                if (!dropdown.classList.contains("show")) closeAllSubmenus();
+            }
 
-    dropdown.classList.toggle("show");
-    menuBtn.classList.toggle("active");
-    menuBtn.setAttribute('aria-expanded', dropdown.classList.contains('show'));
+            function toggleSubmenu(submenuId, caretId, separatorId, el) {
+                const submenu = document.getElementById(submenuId);
+                const caret = document.getElementById(caretId);
+                const separator = document.getElementById(separatorId).querySelector("hr");
+                const label = el.querySelector(".menu-label");
 
-    if (!dropdown.classList.contains("show")) {
-      closeAllSubmenus(); // auto close submenus
-    }
-  }
+                // auto close others
+                document.querySelectorAll(".submenu").forEach(sub => {
+                    if (sub.id !== submenuId) sub.classList.remove("show");
+                });
+                document.querySelectorAll(".caret-icon").forEach(c => {
+                    if (c.id !== caretId) c.classList.remove("rotate");
+                });
+                document.querySelectorAll(".dropdown-menu hr").forEach(hr => {
+                    if (hr !== separator) hr.classList.remove("active");
+                });
+                document.querySelectorAll(".menu-label").forEach(lbl => {
+                    if (lbl !== label) lbl.classList.remove("active-text");
+                });
 
-  function toggleSubmenu(submenuId, caretId, separatorId, el) {
-    const submenu = document.getElementById(submenuId);
-    const caret = document.getElementById(caretId);
-    const separator = document.getElementById(separatorId).querySelector("hr");
-    const label = el.querySelector(".menu-label");
+                submenu.classList.toggle("show");
+                caret.classList.toggle("rotate");
+                if (submenu.classList.contains("show")) {
+                    separator.classList.add("active");
+                    label.classList.add("active-text");
+                } else {
+                    separator.classList.remove("active");
+                    label.classList.remove("active-text");
+                }
+            }
 
-    submenu.classList.toggle("show");
-    caret.classList.toggle("rotate");
+            function closeAllSubmenus() {
+                document.querySelectorAll(".submenu").forEach(sub => sub.classList.remove("show"));
+                document.querySelectorAll(".caret-icon").forEach(c => c.classList.remove("rotate"));
+                document.querySelectorAll(".dropdown-menu hr").forEach(hr => hr.classList.remove("active"));
+                document.querySelectorAll(".menu-label").forEach(lbl => lbl.classList.remove("active-text"));
+            }
 
-    if (submenu.classList.contains("show")) {
-      separator.classList.add("active");
-      label.classList.add("active-text");
-    } else {
-      separator.classList.remove("active");
-      label.classList.remove("active-text");
-    }
-  }
+            // 🔹 Close menu when clicking outside
+            document.addEventListener("click", function(e) {
+                const menuBtn = document.getElementById("menuBtn");
+                const dropdown = document.getElementById("dropdown");
+                if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                    dropdown.classList.remove("show");
+                    menuBtn.classList.remove("active");
+                    menuBtn.setAttribute('aria-expanded', "false");
+                    closeAllSubmenus();
+                }
+            });
+        </script>
 
-  // Close all submenus
-  function closeAllSubmenus() {
-    document.querySelectorAll(".submenu").forEach(sub => sub.classList.remove("show"));
-    document.querySelectorAll(".caret-icon").forEach(c => c.classList.remove("rotate"));
-    document.querySelectorAll(".dropdown-menu hr").forEach(hr => hr.classList.remove("active"));
-    document.querySelectorAll(".menu-label").forEach(lbl => lbl.classList.remove("active-text"));
-  }
-
-  // Close menu when clicking outside
-  document.addEventListener("click", function(event) {
-    const dropdown = document.getElementById("dropdown");
-    const menuBtn = document.getElementById("menuBtn");
-
-    if (dropdown.classList.contains("show") && !dropdown.contains(event.target) && !menuBtn.contains(event.target)) {
-      dropdown.classList.remove("show");
-      menuBtn.classList.remove("active");
-      menuBtn.setAttribute('aria-expanded', 'false');
-      closeAllSubmenus();
-    }
-  });
-
-  /*
-  // Close on scroll
-  window.addEventListener("scroll", function() {
-    const dropdown = document.getElementById("dropdown");
-    const menuBtn = document.getElementById("menuBtn");
-    if (dropdown.classList.contains("show")) {
-      dropdown.classList.remove("show");
-      menuBtn.classList.remove("active");
-      menuBtn.setAttribute('aria-expanded', 'false');
-      closeAllSubmenus();
-    }
-  });
-  */
-  </script>
   <!--
 
 <header>
