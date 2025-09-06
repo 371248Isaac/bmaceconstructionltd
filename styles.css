@@ -1,4 +1,4 @@
-body {
+    body {
       margin: 0;
       font-family: 'Segoe UI Semibold', 'Poppins', Arial, sans-serif;
       font-weight: 600;
@@ -36,13 +36,13 @@ body {
 
     /* Responsive font size for company name */
     .logo-text {
-      font-size: 21px;
-      font-weight: 700;
+      font-size: 19px;   /* reduced from 21px */
+      font-weight: 400;
       letter-spacing: 0.5px;
     }
     @media (max-width: 600px) {
       .logo-text {
-        font-size: 16px;
+        font-size: 19px;
       }
     }
 
@@ -57,13 +57,13 @@ body {
       border: none;
       cursor: pointer;
       width: 24px;
-      height: 18px;   /* 0, 8, 16px rows with 2px bars */
+      height: 18px;
       padding: 0;
     }
     .menu-toggle span {
       position: absolute;
       left: 0;
-      width: 100%;
+      width: 80%;
       height: 2px;
       background-color: #000;
       border-radius: 2px;
@@ -75,14 +75,14 @@ body {
     .menu-toggle span:nth-child(3) { top: 16px; }
 
     .menu-toggle.active span:nth-child(1) {
-      top: 8px;              /* move to center */
+      top: 8px;
       transform: rotate(45deg);
     }
     .menu-toggle.active span:nth-child(2) {
       opacity: 0;
     }
     .menu-toggle.active span:nth-child(3) {
-      top: 8px;              /* move to center */
+      top: 8px;
       transform: rotate(-45deg);
     }
 
@@ -130,7 +130,6 @@ body {
       border: none;
       border-top: 1px solid #ccc;
       margin: 8px 0;
-      transition: border-color 0.3s ease, border-width 0.3s ease;
     }
     .dropdown-menu hr.active {
       border-top: 3px solid #FFD700;
@@ -186,6 +185,136 @@ body {
       from { opacity: 0; transform: translateY(-10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* DESKTOP MODE */
+    @media (min-width: 768px) {
+      .menu-toggle { display: none; }
+      .dropdown-menu {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+        width: auto;
+        max-height: none;
+        overflow: visible;
+      }
+
+      /* Main menu links */
+      .dropdown-menu a {
+        padding: 8px 12px;
+        font-size: 12px;  /* reduced so everything fits */
+        position: relative;
+      }
+      .dropdown-menu a i { display: none; }
+      .dropdown-menu hr { display: none; }
+
+      /* Caret on desktop */
+      .caret-box {
+        background: none !important;
+        width: auto;
+        height: auto;
+        margin-left: 4px;
+      }
+      .caret-icon {
+        color: #000 !important;
+        font-size: 12px;
+      }
+
+      .menu-item {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      /* Submenu panel */
+      .submenu {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        width: 200px; /* slightly narrower */
+        background: #fff;
+        border: 1px solid rgba(0,0,0,0.06);
+        border-radius: 8px;
+        padding: 6px 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: opacity 0.2s ease, max-height 0.25s ease;
+        z-index: 3002;
+      }
+      .submenu a {
+        font-size: 12px;   /* reduced submenu text */
+        padding: 8px 12px; /* tighter padding */
+      }
+      .submenu hr {
+        display: block;
+        margin: 0;
+        border-top: 1px solid #eee;
+      }
+      .menu-item:hover > .submenu {
+        max-height: 500px;
+        opacity: 1;
+      }
+    }
+
+    /* MOBILE ONLY SUBMENU SHADOW */
+    @media (max-width: 767px) {
+      .submenu {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        padding: 8px 12px;
+        margin-top: 6px;
+      }
+      .submenu a { padding: 10px 0; }
+    }
+
+    /* DESKTOP MENU HOVER BACKGROUND */
+    @media (min-width: 768px) {
+      .dropdown-menu > a,
+      .menu-item > a {
+        position: relative;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        border-radius: 4px;
+      }
+      .dropdown-menu > a:hover,
+      .menu-item > a:hover {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    }
+    /* SUBMENU STYLES */
+.submenu a {
+  font-size: 16px; /* default for mobile */
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* DESKTOP MODE */
+@media (min-width: 768px) {
+  .submenu a {
+    font-size: 14px; /* match main menu */
+    padding: 10px 16px;
+  }
+}
+
+/* MOBILE ONLY SUBMENU (no shadow, no rounded corners) */
+@media (max-width: 767px) {
+  .submenu {
+    background: #fff;
+    padding: 8px 12px;
+    margin-top: 6px;
+    border-radius: 0;   /* remove rounded corners */
+    box-shadow: none;   /* remove shadow */
+  }
+  .submenu a { padding: 10px 0; }
+          }
+
 /* Reset body for edge-to-edge layout 
 body {
   margin: 0;
