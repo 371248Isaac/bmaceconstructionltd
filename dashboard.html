@@ -183,6 +183,108 @@
     loadCareerData();
     loadProjects();
   </script>
+<script>
+  // Firebase Config
+  const firebaseConfig = {
+    apiKey: "AIzaSyCGUYSmZZilY76LdbRrwcdMWNPgzxZKR_8",
+    authDomain: "bmace-construction-admin.firebaseapp.com",
+    projectId: "bmace-construction-admin",
+    storageBucket: "bmace-construction-admin.appspot.com",
+    messagingSenderId: "104839678010",
+    appId: "1:104839678010:web:137fbcd29e6f2de3018d03",
+    measurementId: "G-JTP36765S2"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+  const auth = firebase.auth();
+
+  // 🔐 Strict Auth Redirect
+  auth.onAuthStateChanged(user => {
+    if (!user) {
+      // Not logged in → kick to login page
+      window.location.href = 'login.html';
+    } else {
+      console.log("✅ Logged in as:", user.email);
+      // Only load data if authenticated
+      loadContactMessages();
+      loadCareerData();
+      loadProjects();
+    }
+  });
+
+  // Logout
+  document.getElementById("logoutBtn").addEventListener("click", () => {
+    auth.signOut().then(() => {
+      window.location.href = 'login.html';
+    });
+  });
+
+  // 🔽 Firestore Functions (only load if logged in)
+  function loadContactMessages() {
+    db.collection("contacts").get().then(snapshot => {
+      const container = document.getElementById("contactMessages");
+      container.innerHTML = "";
+      snapshot.forEach(doc => {
+        const d = doc.data();
+        container.innerHTML += `<tr><td>${d.name}</td><td>${d.email}</td><td>${d.message}</td>
+        <td><button class="btn btn-danger" onclick="deleteDoc('contacts','${doc.id}')">Delete</button></td></tr>`;
+      });
+    });
+  }
+
+  function loadCareerData() {
+    db.collection("careers").get().then(snapshot => {
+      const container = document.getElementById("careerData");
+      container.innerHTML = "";
+      snapshot.forEach(doc => {
+        const c = doc.data();
+        container.innerHTML += `<tr><td>${c.name}</td><td>${c.email}</td><td>${c.phone}</td><td>${c.position}</td>
+        <td>${c.qualification}</td><td><a href="${c.resume}" target="_blank">View</a></td>
+        <td><button class="btn btn-danger" onclick="deleteDoc('careers','${doc.id}')">Delete</button></td></tr>`;
+      });
+    });
+  }
+
+  function loadProjects() {
+    db.collection("projects").get().then(snapshot => {
+      const container = document.getElementById("projectList");
+      container.innerHTML = "";
+      snapshot.forEach(doc => {
+        const p = doc.data();
+        container.innerHTML += `<tr><td>${p.title}</td><td>${p.desc}</td>
+        <td>${p.image ? `<img src="${p.image}" width="100">` : 'N/A'}</td>
+        <td><button class="btn btn-danger" onclick="deleteDoc('projects','${doc.id}')">Delete</button></td></tr>`;
+      });
+    });
+  }
+
+  // Add project
+  document.getElementById("projectForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const title = document.getElementById("projectTitle").value;
+    const desc = document.getElementById("projectDesc").value;
+    const image = document.getElementById("projectImage").value;
+    db.collection("projects").add({ title, desc, image }).then(() => {
+      this.reset(); loadProjects();
+    });
+  });
+
+  // Delete doc
+  function deleteDoc(collection, id) {
+    db.collection(collection).doc(id).delete().then(() => {
+      if (collection === "contacts") loadContactMessages();
+      if (collection === "careers") loadCareerData();
+      if (collection === "projects") loadProjects();
+    });
+  }
+
+  // Reset Form (placeholder)
+  document.getElementById("resetForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Password reset coming soon.");
+    this.reset();
+  });
+</script>
 </body>
 </html><!-- <!DOCTYPE html>
 <html lang="en">
